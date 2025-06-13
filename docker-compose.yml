@@ -149,12 +149,8 @@ services:
     ports:
       - "5432:5432"
     user: postgres
-    environment:
-      # The default user defined by the docker image
-      POSTGRES_USER: postgres
-      # NOTE: Please UPDATE THIS PASSWORD!
-      POSTGRES_PASSWORD: testpass
-      POSTGRES_DB: hoppscotch
+    env_file:
+      - ./.env
     healthcheck:
       test:
         [
